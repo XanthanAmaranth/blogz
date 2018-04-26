@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title> {{title}} </title>
+    </head>
+    <body>
+        <style>
+            h1{background-color:aqua}
+            h1{color: black;
+            -webkit-text-fill-color:rgb(218, 135, 235); 
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;font-size:50px;font-weight:bold;
+            font-family:roboto;color:#4682b4;text-align: center;}
+            p{font-weight:900;}
+            h2{font-family:Impact;color:rgb(218, 135, 235);}
+            label{font-weight:900;font-size:120%}
+            input[type=submit]{font-weight:900; font-size:120%;background-color:aqua;color:black;}
+        </style>
+        <nav>
+            <p><a href='/blog'>homepage</a></p>
+            <p><a href='/newpost'>write a blog </a></p>
+
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endwith %}
+
+    </body>
+</html>
